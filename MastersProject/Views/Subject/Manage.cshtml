@@ -1,0 +1,72 @@
+﻿@model List<MastersProject.Models.SubjectEntity>
+
+@{
+    ViewBag.Title = "Manage";
+    int intSno = 0;
+}
+
+<div class="card shadow" mb-4>
+    <div class="card-header py-3">
+        <table class="table table-bordered" id="tblpag" width="100%" cellpadding="0">
+            <thead>
+                <tr style="background-color:#005cbf;font-style:inherit;color:aliceblue">
+                    <th>
+                        Sno
+                    </th>
+                    <th>
+                        Course
+                    </th>
+                    <th>
+                        Class
+                    </th>
+                    <th>
+                        Subject
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    intSno = intSno + 1;
+                    <tr>
+                        <td>
+                            @intSno
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.courseEntity.Coursename)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.classEntity.Classname)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.Subjectname)
+
+                        </td>
+                        <td>
+
+                            <a href="@Url.Action("Index", "City", new { @Subjectid= item.Subjectid })">
+                                <img src="~/image/Edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="RemoveSubject('@item.Subjectid')">
+                                <img src="~/image/delete.png" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

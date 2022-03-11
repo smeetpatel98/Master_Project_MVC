@@ -1,0 +1,117 @@
+﻿.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 20; /* Sit on top */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgb(0, 0, 0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+    background: white;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+}
+/* The Close Button */
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 1;
+    border: 1px solid #ccc !important;
+    padding: 3px 8px !important;
+}
+
+    .close:hover, .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+/*
+    }*/
+.modal p {
+    color: #555;
+}
+
+.anaesthetics-modal .modal-content {
+    height: calc(100% - 300px);
+    overflow-y: auto;
+}
+
+    .anaesthetics-modal .modal-content .modal-footer {
+        padding-bottom: 2rem;
+    }
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: calc(100%/1.5);
+    border-radius: 0.5rem;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 20px 0px rgb(0 0 0 / 5%);
+    -webkit-box-shadow: 0 0 20px 0px rgb(0 0 0 / 5%);
+    -ms-box-shadow: 0 0 20px 0px rgb(0 0 0 / 5%);
+}
+
+    .modal-content .modal-header strong {
+        font-size: 20px;
+        font-weight: 600;
+        color: #00334e;
+    }
+
+.modal-header {
+    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 99999;
+}
+
+.modal-footer {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+    .modal-footer a {
+        font-size: 16px;
+        color: #fff;
+        padding: 8px 30px;
+        border-radius: 50px;
+        margin-left: 10px;
+    }
+
+    .modal-footer .dlt {
+        background: #0aafce;
+    }
+
+    .modal-footer .cncl {
+        background: #14bef0;
+    }
+
+    .modal-footer .save {
+        background: #263077;
+    }

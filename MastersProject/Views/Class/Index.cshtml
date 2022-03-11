@@ -1,0 +1,46 @@
+﻿@model MastersProject.Models.ClassEntity  
+@{
+    ViewBag.Title = "Index";
+}
+<section class="content">
+    <div class="row">
+        <section class="col-md-5">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <h4 class="box-title">State Entry</h4>
+                </div>
+                <div class="messagealert" id="alert_container"></div>
+                <div class="box-body">
+                    @{
+                        Html.RenderPartial("Create", new ViewDataDictionary(Model));
+                    }
+                </div>
+            </div>
+        </section>
+        <section class="col-md-7">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <div>
+                        <h4 style="margin:10px">Class List</h4>
+                    </div>
+                    @{
+                        Html.RenderPartial("Manage", new ViewDataDictionary(Model.ClassInfo));
+                    }
+                </div>
+                </div>
+        </section>
+    </div>
+    @section Scripts {
+        <script src="~/Scripts/app/Class.js"></script>
+        <script src="~/Scripts/app/Common.js"></script>
+        <script type="text/javascript">
+
+            function ConfirmationDialog() {
+                if (confirm("Are you sure to continue?"))
+                    return true;
+                else
+                    return false;
+            }
+        </script>
+    }
+</section>

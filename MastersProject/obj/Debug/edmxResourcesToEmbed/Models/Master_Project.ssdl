@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Master_MVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="Cityid" />
+    </Key>
+    <Property Name="Cityid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cityname" Type="varchar" MaxLength="50" />
+    <Property Name="Sid" Type="bigint" Nullable="false" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+    <Property Name="Cid" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_class">
+    <Key>
+      <PropertyRef Name="Classid" />
+    </Key>
+    <Property Name="Classid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Classname" Type="varchar" MaxLength="50" />
+    <Property Name="Courseid" Type="bigint" Nullable="false" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Cid" />
+    </Key>
+    <Property Name="Cid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cname" Type="varchar" MaxLength="50" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_course">
+    <Key>
+      <PropertyRef Name="Courseid" />
+    </Key>
+    <Property Name="Courseid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Coursename" Type="varchar" MaxLength="50" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_login">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="trans_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbl_state">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sname" Type="varchar" MaxLength="50" />
+    <Property Name="Cid" Type="bigint" Nullable="false" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_studentlistpage">
+    <Key>
+      <PropertyRef Name="Studentid" />
+    </Key>
+    <Property Name="Studentid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Studentname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pincode" Type="bigint" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
+    <Property Name="Courseid" Type="bigint" Nullable="false" />
+    <Property Name="Classid" Type="bigint" Nullable="false" />
+    <Property Name="Subjectid" Type="bigint" Nullable="false" />
+    <Property Name="Emailid" Type="nvarchar" MaxLength="50" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+    <Property Name="Coursename" Type="nvarchar" MaxLength="50" />
+    <Property Name="Classname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subjectname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cid" Type="bigint" Nullable="false" />
+    <Property Name="Sid" Type="bigint" Nullable="false" />
+    <Property Name="Cityid" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_subject">
+    <Key>
+      <PropertyRef Name="Subjectid" />
+    </Key>
+    <Property Name="Subjectid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subjectname" Type="varchar" MaxLength="50" />
+    <Property Name="Courseid" Type="bigint" Nullable="false" />
+    <Property Name="Classid" Type="bigint" Nullable="false" />
+    <Property Name="trans_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_transaction">
+    <Key>
+      <PropertyRef Name="trans_id" />
+    </Key>
+    <Property Name="trans_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_dt" Type="datetime" Nullable="false" />
+    <Property Name="created_id" Type="bigint" />
+    <Property Name="last_mod_dt" Type="datetime" />
+    <Property Name="last_mod_id" Type="bigint" />
+  </EntityType>
+  <Association Name="FK_tbl_city_tbl_city_TR">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_city" Type="Self.tbl_city" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_city">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_city_tbl_state">
+    <End Role="tbl_state" Type="Self.tbl_state" Multiplicity="1" />
+    <End Role="tbl_city" Type="Self.tbl_city" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_state">
+        <PropertyRef Name="Sid" />
+      </Principal>
+      <Dependent Role="tbl_city">
+        <PropertyRef Name="Sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_class_tbl_course">
+    <End Role="tbl_course" Type="Self.tbl_course" Multiplicity="1" />
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_course">
+        <PropertyRef Name="Courseid" />
+      </Principal>
+      <Dependent Role="tbl_class">
+        <PropertyRef Name="Courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_class_tbl_transaction">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_class">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_country_tbl_country_tr">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_country" Type="Self.tbl_country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_country">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_course_tbl_transaction">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_course" Type="Self.tbl_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_course">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_login_tbl_login_tr">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="0..1" />
+    <End Role="tbl_login" Type="Self.tbl_login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_login">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_state_tbl_country">
+    <End Role="tbl_country" Type="Self.tbl_country" Multiplicity="1" />
+    <End Role="tbl_state" Type="Self.tbl_state" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_country">
+        <PropertyRef Name="Cid" />
+      </Principal>
+      <Dependent Role="tbl_state">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_state_tbl_state_tr">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_state" Type="Self.tbl_state" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_state">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_city">
+    <End Role="tbl_city" Type="Self.tbl_city" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_city">
+        <PropertyRef Name="Cityid" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="Cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_class">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="Classid" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="Classid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_country">
+    <End Role="tbl_country" Type="Self.tbl_country" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_country">
+        <PropertyRef Name="Cid" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_course1">
+    <End Role="tbl_course" Type="Self.tbl_course" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_course">
+        <PropertyRef Name="Courseid" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="Courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_state">
+    <End Role="tbl_state" Type="Self.tbl_state" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_state">
+        <PropertyRef Name="Sid" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="Sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_subject">
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_subject">
+        <PropertyRef Name="Subjectid" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="Subjectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_studentlistpage_tbl_transaction">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_studentlistpage" Type="Self.tbl_studentlistpage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_studentlistpage">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_subject_tbl_class">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="1" />
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="Classid" />
+      </Principal>
+      <Dependent Role="tbl_subject">
+        <PropertyRef Name="Classid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_subject_tbl_course">
+    <End Role="tbl_course" Type="Self.tbl_course" Multiplicity="1" />
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_course">
+        <PropertyRef Name="Courseid" />
+      </Principal>
+      <Dependent Role="tbl_subject">
+        <PropertyRef Name="Courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_subject_tbl_transaction">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_subject">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transaction_tbl_transaction">
+    <End Role="tbl_transaction" Type="Self.tbl_transaction" Multiplicity="1" />
+    <End Role="tbl_transaction1" Type="Self.tbl_transaction" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transaction">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_transaction1">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Master_MVCModelStoreContainer">
+    <EntitySet Name="tbl_city" EntityType="Self.tbl_city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_class" EntityType="Self.tbl_class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_course" EntityType="Self.tbl_course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_login" EntityType="Self.tbl_login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_state" EntityType="Self.tbl_state" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_studentlistpage" EntityType="Self.tbl_studentlistpage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_subject" EntityType="Self.tbl_subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_transaction" EntityType="Self.tbl_transaction" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_city_tbl_city_TR" Association="Self.FK_tbl_city_tbl_city_TR">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_city" EntitySet="tbl_city" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_city_tbl_state" Association="Self.FK_tbl_city_tbl_state">
+      <End Role="tbl_state" EntitySet="tbl_state" />
+      <End Role="tbl_city" EntitySet="tbl_city" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_class_tbl_course" Association="Self.FK_tbl_class_tbl_course">
+      <End Role="tbl_course" EntitySet="tbl_course" />
+      <End Role="tbl_class" EntitySet="tbl_class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_class_tbl_transaction" Association="Self.FK_tbl_class_tbl_transaction">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_class" EntitySet="tbl_class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_country_tbl_country_tr" Association="Self.FK_tbl_country_tbl_country_tr">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_country" EntitySet="tbl_country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_course_tbl_transaction" Association="Self.FK_tbl_course_tbl_transaction">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_course" EntitySet="tbl_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_login_tbl_login_tr" Association="Self.FK_tbl_login_tbl_login_tr">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_login" EntitySet="tbl_login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_state_tbl_country" Association="Self.FK_tbl_state_tbl_country">
+      <End Role="tbl_country" EntitySet="tbl_country" />
+      <End Role="tbl_state" EntitySet="tbl_state" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_state_tbl_state_tr" Association="Self.FK_tbl_state_tbl_state_tr">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_state" EntitySet="tbl_state" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_city" Association="Self.FK_tbl_studentlistpage_tbl_city">
+      <End Role="tbl_city" EntitySet="tbl_city" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_class" Association="Self.FK_tbl_studentlistpage_tbl_class">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_country" Association="Self.FK_tbl_studentlistpage_tbl_country">
+      <End Role="tbl_country" EntitySet="tbl_country" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_course1" Association="Self.FK_tbl_studentlistpage_tbl_course1">
+      <End Role="tbl_course" EntitySet="tbl_course" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_state" Association="Self.FK_tbl_studentlistpage_tbl_state">
+      <End Role="tbl_state" EntitySet="tbl_state" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_subject" Association="Self.FK_tbl_studentlistpage_tbl_subject">
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_studentlistpage_tbl_transaction" Association="Self.FK_tbl_studentlistpage_tbl_transaction">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_studentlistpage" EntitySet="tbl_studentlistpage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_subject_tbl_class" Association="Self.FK_tbl_subject_tbl_class">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_subject_tbl_course" Association="Self.FK_tbl_subject_tbl_course">
+      <End Role="tbl_course" EntitySet="tbl_course" />
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_subject_tbl_transaction" Association="Self.FK_tbl_subject_tbl_transaction">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transaction_tbl_transaction" Association="Self.FK_tbl_transaction_tbl_transaction">
+      <End Role="tbl_transaction" EntitySet="tbl_transaction" />
+      <End Role="tbl_transaction1" EntitySet="tbl_transaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

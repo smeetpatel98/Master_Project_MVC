@@ -1,0 +1,241 @@
+﻿
+@{
+    /**/
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Welcome</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <!-- Bootstrap 3.3.6 -->
+    <!-- jQuery 2.2.3 -->
+
+    <link rel="stylesheet" href="~/ThemeData/bootstrap/css/bootstrap.min.css" />
+    <link href="~/ThemeData/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="~/ThemeData/plugins/select2/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/ThemeData/dist/css/AdminLTE.min.css" />
+    <link href="~/ThemeData/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/ThemeData/dist/css/skins/_all-skins.min.css" />
+    <script src="~/ThemeData/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/ThemeData/bootstrap/js/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="~/ThemeData/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="~/ThemeData/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/ThemeData/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="~/ThemeData/plugins/select2/select2.full.min.js"></script>
+    <!-- InputMask -->
+    @*<script src="~/ThemeData/plugins/input-mask/jquery.inputmask.js"></script>
+        <script src="~/ThemeData/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+        <script src="~/ThemeData/plugins/input-mask/jquery.inputmask.extensions.js"></script>*@
+    <!-- SlimScroll 1.3.0 -->
+    <script src="~/ThemeData/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- iCheck 1.0.1 -->
+    <script src="~/ThemeData/plugins/iCheck/icheck.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/ThemeData/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    @*<script src="~/ThemeData/dist/js/app.min.js"></script>*@
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/ThemeData/dist/js/demo.js"></script>
+    <style>
+            @*@media (min-width: 992px)
+.col-md-3 {
+  width: 33%;
+}*@
+
+        .nav > li > a {
+            position: relative;
+            display: block;
+            padding: 10px 6px;
+            margin-top: 5px;
+        }
+
+        .navbar-brand {
+            display: inline-block;
+            padding-top: .3125rem;
+            padding-bottom: .3125rem;
+            margin-right: .5rem;
+            font-size: 1.25rem;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
+            border-bottom: 0;
+            border-left: .3em solid transparent;
+        }
+
+        .input-sm {
+            height: 30px !important;
+        }
+
+        .h3 {
+            font-weight: 500 !important;
+        }
+
+        .displayNone {
+            display: none !important;
+        }
+
+        .textalign {
+            text-align: center !important;
+        }
+
+        .image-cls {
+            height: 40px;
+            width: 40px;
+            margin-left: 40px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="skin-blue layout-top-nav">
+
+    <input type="hidden" id="hdnBranchID" value="0" />
+    <div class="wrapper" id="main-menu">
+        <header class="main-header">
+            <!-- Logo -->
+            <nav class="navbar navbar-static-top" style="background: #3f478b; padding: .5rem .5rem;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <img Style="width: 50px; height: 50px;position: relative;" src="~/ThemeData/images/logo.png" />
+                    </div>
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="treeview" style="margin-left:20px;">
+                                <a href="@Url.Action("Index", "Home")">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="dropdown" id="MasterMenu" style="margin-left:10px;">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Masters
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li id="StM">
+                                        <a href="@Url.Action("Index","Country")">Country Master</a>
+                                    </li>
+                                    <li id="BrM">
+                                        <a href="@Url.Action("Index","State")">State Master</a>
+                                    </li>
+                                    <li id="Banner">
+                                        <a href="@Url.Action("Index","City")">City Master</a>
+                                    </li>
+                                    <li id="NotificationMaster">
+                                        <a href="@Url.Action("Index","Course")">Course Master</a>
+                                    </li>
+                                    <li id="NotificationMaster">
+                                        <a href="@Url.Action("Index","Class")">Class Master</a>
+                                    </li>
+                                    <li id="NotificationMaster">
+                                        <a href="@Url.Action("Index","Subject")">Subject Master</a>
+                                    </li>
+                                    <li id="NotificationMaster">
+                                        <a href="@Url.Action("MainPageView","StudentList")">Student List</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @*<li class="treeview" style="margin-left:20px;">
+                                <a href="@Url.Action("Index", "Login")">
+                                    Log Out
+                                </a>
+                            </li>*@
+                        </ul>
+                    </div>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown user user-menu" style="height: 50px">
+                                <a href="#" class="dropdown-toggle" style="height: 50px" data-toggle="dropdown">
+                                    <img src="~/ThemeData/dist/img/avatar5.png" class="user-image" alt="User Image" />
+                                    <span class="hidden-xs">
+                                        @(SessionContext.Instance.LoginUser.Username)
+                                       
+                                            <label id="lblUserName"></label>
+                                       
+                                                                         
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer"><a href="@Url.Action("Index","Profile")"><i class="fa fa-user fa-lg"></i>Profile</a></li>
+                                    @*<li class="user-footer"><a href="@Url.Action("Index","ChangePassword")"><i class="fa fa-key fa-lg"></i>Change Password</a></li>*@
+                                    <li class="user-footer"><a href="@Url.Action("Index", "Login")"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @*<div class="container-fluid">
+                    <div class="navbar-header">
+                        <h4 style="color: white;" id="lblBranchName">Masters Project</h4>
+                    </div>
+                </div>*@
+            </nav>
+        </header>
+
+        <div class="content-wrapper">          
+            @RenderBody()
+        </div>
+
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")*@
+
+    @RenderSection("scripts", required: false)
+    <!-- Page script -->
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            //$(".select2").select2();
+            //Datemask dd/mm/yyyy
+            //$("#datemask").inputmask("dd/mm/yyyy", { "placeholder": "dd/mm/yyyy" });
+            //Money Euro
+            //$("[data-mask]").inputmask();
+        });
+    </script>
+    <script>
+        window.alert = function () { };
+    </script>
+</body>
+</html>
+<script src="~/Scripts/app/Common.js"></script>

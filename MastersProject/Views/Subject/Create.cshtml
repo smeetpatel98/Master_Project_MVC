@@ -1,0 +1,31 @@
+﻿@model MastersProject.Models.SubjectEntity
+@{
+    ViewBag.Title = "Create";
+}
+<form role="form" id="FSubject">
+    <div class="card-body">
+        <div class="form-group">
+
+            @Html.Label("Select Course")
+            <select class="form-control select2bs4" id="Course" name="Course">
+                <option value="0">---Select Course---</option>
+            </select>
+            @Html.HiddenFor(x => x.Courseid)
+            <br />
+            @Html.Label("Select Class")
+            <select class="form-control select2bs4" id="Class" name="Class">
+                <option value="0">---Select Class---</option>
+            </select>
+            @Html.HiddenFor(x => x.Classid)
+            <br />
+            @Html.HiddenFor(x => x.Subjectid)
+            @Html.Label("Subject Name")
+            @Html.TextBoxFor(x => x.Subjectname, new { @class = "form-control" })
+        </div>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <button type="button" onclick="SaveSubject()" class="btn btn-primary">Save</button>
+        <input type="reset" value="Clear" class="btn btn-primary">
+    </div>
+</form>

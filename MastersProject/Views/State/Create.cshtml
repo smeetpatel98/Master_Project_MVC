@@ -1,0 +1,28 @@
+﻿@model MastersProject.Models.StateEntity
+@{
+    ViewBag.Title = "Create";
+}
+<form role="form" id="FState">
+    <div class="form-group">
+        <div style="margin-top:10px;">
+            
+                @Html.Label("Select Country")
+                <select class="form-control select2bs4" id="Country" name="Country">
+                    <option value="0">---Select Country---</option>
+                </select>
+            
+            <br />
+           
+                @Html.HiddenFor(x => x.Cid)
+                @Html.HiddenFor(x => x.Sid)
+                @Html.Label("State Name")
+                @Html.TextBoxFor(x => x.Sname, new { @class = "form-control" })
+           
+        </div>
+        </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <button type="button" onclick="SaveState()" class="btn btn-primary">Save</button>
+        <input type="reset" value="Clear" class="btn btn-primary">
+    </div>
+</form>

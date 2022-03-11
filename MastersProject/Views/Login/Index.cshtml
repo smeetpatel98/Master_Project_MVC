@@ -1,0 +1,263 @@
+﻿@model MastersProject.Models.loginEntity
+@{
+    Layout = null;
+    ViewBag.tiltle = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Login Page</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="~/ThemeData/images/logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rubik', sans-serif;
+            font-size: 13px;
+        }
+
+            .main-container a {
+                text-decoration: none;
+            }
+
+            .main-container .login-wrapper {
+                -webkit-box-shadow: 0px 0px 172px 6px rgba(0,0,0,0.2);
+                -moz-box-shadow: 0px 0px 172px 6px rgba(0,0,0,0.2);
+                box-shadow: 0px 0px 172px 6px rgba(0,0,0,0.2);
+                width: 100%;
+                max-width: 900px;
+                min-height: 520px;
+            }
+
+                /* Estilos del contenedor del formulario */
+                .main-container .login-wrapper .form-wrapper {
+                    min-width: 45%;
+                    background: #1569B4;
+                    height: 520px;
+                }
+
+                    /* Estilos del header del formulario */
+                    .main-container .login-wrapper .form-wrapper .form-header {
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+        .fa-arrow-left,
+        .register-link,
+        .forgot-pass {
+            color: #686b72;
+        }
+        /* Estilos del formulario y sus mensajes */
+        .main-container .login-wrapper .form-wrapper .form-container {
+            padding: 0px 60px;
+        }
+
+            .main-container .login-wrapper .form-wrapper .form-container .form-messages {
+                text-align: left;
+                line-height: 20px;
+                margin-bottom: 30px;
+            }
+
+                .main-container .login-wrapper .form-wrapper .form-container .form-messages h2 {
+                    margin-bottom: 15px;
+                    margin-top: 50px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #fff;
+                }
+
+        .form input {
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: #eeeeee;
+            border: none;
+            padding: 10px;
+        }
+
+        input:focus {
+            outline: 2px solid #4694a8;
+        }
+
+        a {
+            display: block;
+        }
+
+            a:hover {
+                color: white;
+            }
+
+        .forgot-pass {
+            text-align: right;
+            font-weight: 900;
+            color: #fff;
+            display: block;
+        }
+
+        .login-button {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 10px;
+            border-radius: 50px;
+            background-color: #fff;
+            color: #1569B4;
+            text-align: center;
+        }
+
+            .login-button:hover {
+                margin-top: 20px;
+                margin-bottom: 30px;
+                padding: 10px;
+                border-radius: 50px;
+                background-color: #fff;
+                color: #1569B4;
+                text-align: center;
+            }
+
+        /* Separador */
+        .main-container .login-wrapper .form-wrapper .form-container .separator {
+            border: 2px solid #e8e9ea;
+            margin-bottom: 35px;
+        }
+
+        /* Otras opciones de login */
+        .main-container .login-wrapper .form-wrapper .form-container .login-options {
+            margin: 20px 20px;
+            text-align: center;
+        }
+
+            .main-container .login-wrapper .form-wrapper .form-container .login-options .login-text {
+                margin-bottom: 15px;
+            }
+
+        .main-container .login-wrapper .form-wrapper .form-container .login-icons {
+            font-size: 20px;
+        }
+
+            .main-container .login-wrapper .form-wrapper .form-container .login-icons .fa-facebook-square,
+            .main-container .login-wrapper .form-wrapper .form-container .login-icons .fa-google,
+            .main-container .login-wrapper .form-wrapper .form-container .login-icons .fa-twitter {
+                color: #4694a8;
+                padding: 0px 10px;
+            }
+
+        .main-container .image-wrapper {
+          /*  background: url("../../ThemeData/dist/img/credit/pexels-photo.jpeg");*/
+            background: url("../../ThemeData/dist/img/photo4.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+            .main-container .image-wrapper .image-message {
+                color: #fff;
+                line-height: 20px;
+                padding: 50px 70px 70px 40px;
+            }
+
+                .main-container .image-wrapper .image-message .image-hr-container {
+                    margin: 5px 20px;
+                }
+
+                    .main-container .image-wrapper .image-message .image-hr-container .image-hr {
+                        border: 1px solid #e8e9ea;
+                        min-width: 30px;
+                    }
+
+                .main-container .image-wrapper .image-message .image-text h2 {
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                }
+
+        .col-md-6 {
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+        }
+    </style>
+    <link rel="stylesheet" href="~/ThemeData/bootstrap/css/bootstrap.min.css" />
+    <!-- Font Awesome -->
+
+    <link href="~/ThemeData/plugins/select2/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/ThemeData/dist/css/AdminLTE.min.css" />
+    <link href="~/ThemeData/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/ThemeData/dist/css/skins/_all-skins.min.css" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Admin/js/DataTable/datatables.js"></script>*@
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">  
+    <form id="formdata" class="form">
+        <section style="overflow: hidden;">
+            <div class="messagealert" id="alert_container"></div>
+            <div class="container">
+                <article class="main-container">
+                    <div class="login-wrapper">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <section class="form-wrapper">
+                                    <header class="form-header">
+                                        <img src="~/image/digital-inventory.png" alt="Logo" style="opacity: .8; width: 150px; margin-top: 20px">
+                                    </header>                                  
+                                    <!-- Contenedor del formulario y sus mensajes -->
+                                    <div class="form-container" id="dInformation">
+                                        <!-- Mensaje de login -->
+                                        <div class="form-messages">
+                                            <h2>Login</h2>
+                                        </div>
+
+                                        <!-- Formulario -->
+                                        <span class="block input-icon input-icon-right">
+                                            @Html.TextBoxFor(x => x.Username, new { @class = "user-email required", @alt = "UserName" })
+                                            @*<input ID="txtmob" name="MobileNo" class="user-email" MaxLength="10" placeholder="Enter your mobile no" />*@
+                                        </span>
+                                        <span class="block input-icon input-icon-right">
+                                            @Html.PasswordFor(x => x.Password, new { @class = "user-password required", @placeholder = "Enter your password", @alt = "Password" })
+                                            @*<input ID="txtpwd" name="Password" type="password" class="user-password" MaxLength="10" placeholder="Enter your password" />*@
+                                        </span>
+                                        @*<a href="@Url.Action("Index","ForgotPassword")" class="forgot-pass">Forgot your password?</a>*@
+                                        <a href="#" onclick="Login()" class="login-button">
+                                            Login Now
+                                        </a>                    
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-6">
+                                <section class="image-wrapper">
+                                    <div class="image-message">
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- /.main-container -->
+    </form>
+</body>
+</html>
+
+<script src="~/Scripts/app/Login.js"></script>
+<script src="~/Scripts/app/Common.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>

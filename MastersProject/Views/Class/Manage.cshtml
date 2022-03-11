@@ -1,0 +1,64 @@
+﻿
+@model List<MastersProject.Models.ClassEntity>
+
+@{
+    ViewBag.Title = "Manage";
+    int intSno = 0;
+}
+
+<div class="card shadow" mb-4>
+    <div class="card-header py-3">
+        <table style="width: 100%;" id="tblpag" class="table table-bordered dataTable no-footer">
+            <thead>
+                <tr style="background-color:#005cbf;font-style:inherit;color:aliceblue">
+                    <th>
+                        Sno
+                    </th>
+                    <th>
+                        Course
+                    </th>
+                    <th>
+                        Class
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    intSno = intSno + 1;
+                    <tr>
+                        <td>
+                            @intSno
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.courseEntity.Coursename)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.Classname)
+
+                        </td>
+                        <td>
+
+                            <a href="@Url.Action("Index", "Class", new { @Classid= item.Classid })">
+                                <img src="~/image/Edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="RemoveClass('@item.Classid')">
+                                <img src="~/image/delete.png" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

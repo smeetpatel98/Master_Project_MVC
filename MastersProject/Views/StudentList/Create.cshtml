@@ -1,0 +1,374 @@
+﻿@model MastersProject.Models.StudentListEntity
+@{
+    ViewBag.Title = "Create";
+}
+@*Main Create from*@
+<style>
+  
+    .modal {
+        position: center; /* Stay in place */
+        z-index: 2; /* Sit on top */
+        left: 100px;
+        top: 0px;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        background: transparent !important;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%; /* Could be more or less, depending on screen size */
+    }
+
+    .courseclose {
+        color: #aaa;
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+        .courseclose:hover,
+        .courseclose:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .classclose {
+        color: #aaa;
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+        .classclose:hover,
+        .classclose:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .subjectclose {
+        color: #aaa;
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+        .subjectclose:hover,
+        .subjectclose:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .displayblock {
+        display: block;
+    }
+
+    .h4 {
+        padding-left: 35%;
+        padding-bottom: 10px;
+        border-bottom: solid;
+        border-bottom-color: royalblue;
+        border-bottom-width: medium;
+        font-size: large;
+    }
+
+    .btn btn-primary {
+        float: right !important;
+    }
+</style>
+<div class="messagealert" id="alert_container"></div>
+<form role="form" id="FStudentGroup">
+    @*<label style="float:right;margin-right:5px">@Model.Noseries</label>*@
+    <h3 style="font-size: 30px; padding-left: 10px; padding-top: 10px">Student Master</h3>
+    <div class="form-group" id="dInformation" style="padding:10px;padding-top:1px">
+        <div class="row">
+            @Html.HiddenFor(x => x.Studentid)
+            <div class="col-md-12">
+                @Html.Label("Student Name", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                @Html.TextBoxFor(x => x.Studentname, new { @class = "form-control required", @alt = "First Name", autocomplete = "off" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Address", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                @Html.TextBoxFor(x => x.Address, new { @class = "form-control required", @alt = "Middle Name", autocomplete = "off" })
+            </div>          
+            <div class="col-md-6">
+                @Html.Label("Pincode", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                @Html.TextBoxFor(x => x.Pincode, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Date Of Brith", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                    @*<input class="form-control" type="text" readonly />*@
+                    @Html.TextBoxFor(x => x.DOB, new { @class = "form-control" })
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Phone Number", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+            </div>
+            <div class="col-md-12">
+                @Html.Label("Email", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                @Html.TextBoxFor(x => x.Emailid, new { @class = "form-control" })
+            </div>
+            @*<div class="col-md-3">
+                    @Html.Label("Last", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                </div>*@
+            <div class="col-md-6">
+                @Html.Label("Country", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>              
+                    <select class="form-control" id="Country" name="Country">
+                        <option value="0">---Select Country type---</option>
+                        @Html.HiddenFor(x => x.Cid)
+                    </select>
+              
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("State", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                    <select class="form-control" id="State" name="State">
+                        <option value="0">---Select State type---</option>
+                        @Html.HiddenFor(x => x.Sid)
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("City", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                    <select class="form-control" id="City" name="City">
+                        <option value="0">---Select City type---</option>
+                        @Html.HiddenFor(x => x.Cityid)
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Course", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                    <select class="form-control" id="Course" name="Course">
+                        <option value="0">---Select Course type---</option>
+                        @Html.HiddenFor(x => x.Courseid)
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Class", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                    <select class="form-control" id="Class" name="Class">
+                        <option value="0">---Select Class Name---</option>
+                        @Html.HiddenFor(x => x.Classid)
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Subject", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                    <select class="form-control" id="Subject" name="Subject">
+                        <option value="0">---Select Subject Name---</option>
+                        @Html.HiddenFor(x => x.Subjectid)
+                    </select>
+                </div>
+                @*<div class="col-md-3">
+                        @Html.Label("Last", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                    </div>*@
+
+            </div>
+        </div>
+    <br />
+    <div class="col-md-12 form-group" style="text-align:center">
+        <button type="button" onclick="SaveStudent()" class="btn btn-primary">Save</button>
+        <input type="reset" class="btn btn-primary">
+    </div>
+</form>
+<script src="~/Scripts/app/Common.js"></script>
+
+<!--<script>
+
+    function OpenModel(ID) {
+        $('#' + ID).addClass('displayblock');
+    }
+    function Reset() {
+        $(".modelfield").each(function () {
+            $(this).val("");
+        });
+    }
+
+</script>-->
+
+@*Course type*@
+<!--<script>
+    var bmodal = document.getElementById("course");
+
+    // Get the button that opens the modal
+    var bbtn = document.getElementById("mybtn");
+
+    // Get the <span> element that closes the modal
+    var bspan = document.getElementsByClassName("courseclose")[0];
+
+    // When the user clicks on the button, open the modal
+    bbtn.onclick = function () {
+        bmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    bspan.onclick = function () {
+        bmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            bmodal.style.display = "none";
+        }
+    }
+</script>-->
+
+@*Class Group*@
+
+<!--<script>
+    debugger;
+    var imodal = document.getElementById("class");
+
+    // Get the button that opens the modal
+    var ibtn = document.getElementById("mybtn2");
+
+    // Get the <span> element that closes the modal
+    var ispan = document.getElementsByClassName("classclose")[0];
+
+    // When the user clicks on the button, open the modal
+    ibtn.onclick = function () {
+        imodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    ispan.onclick = function () {
+        imodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == imodal) {
+            imodal.style.display = "none";
+        }
+    }
+</script>-->
+
+
+@*Subject Group*@
+
+<!--<script>
+    debugger;
+    var imodal = document.getElementById("subject");
+
+    // Get the button that opens the modal
+    var ibtn = document.getElementById("mybtn3");
+
+    // Get the <span> element that closes the modal
+    var ispan = document.getElementsByClassName("subjectclose")[0];
+
+    // When the user clicks on the button, open the modal
+    ibtn.onclick = function () {
+        imodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    ispan.onclick = function () {
+        imodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == imodal) {
+            imodal.style.display = "none";
+        }
+    }
+</script>-->
+
+
+@*CountryType*@
+<!--<script>
+    var bmodal = document.getElementById("country");
+
+    // Get the button that opens the modal
+    var bbtn = document.getElementById("mybtn5");
+
+    // Get the <span> element that closes the modal
+    var bspan = document.getElementsByClassName("countryclose")[0];
+
+    // When the user clicks on the button, open the modal
+    bbtn.onclick = function () {
+        bmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    bspan.onclick = function () {
+        bmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            bmodal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    var bmodal = document.getElementById("state");
+
+    // Get the button that opens the modal
+    var bbtn = document.getElementById("mybtn6");
+
+    // Get the <span> element that closes the modal
+    var bspan = document.getElementsByClassName("stateclose")[0];
+
+    // When the user clicks on the button, open the modal
+    bbtn.onclick = function () {
+        bmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    bspan.onclick = function () {
+        bmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            bmodal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    var bmodal = document.getElementById("city");
+
+    // Get the button that opens the modal
+    var bbtn = document.getElementById("mybtn7");
+
+    // Get the <span> element that closes the modal
+    var bspan = document.getElementsByClassName("cityclose")[0];
+
+    // When the user clicks on the button, open the modal
+    bbtn.onclick = function () {
+        bmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    bspan.onclick = function () {
+        bmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            bmodal.style.display = "none";
+        }
+    }
+</script>-->
+
+
+
+
+
+
+
+
+

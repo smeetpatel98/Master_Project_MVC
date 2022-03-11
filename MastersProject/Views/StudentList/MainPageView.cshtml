@@ -1,0 +1,170 @@
+﻿@model List<MastersProject.Models.StudentListEntity>
+@{
+    ViewBag.Title = "MainPage";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="h3">Student Register Page</h3>
+        </div>
+        <div class="col-md-6" style="margin-top:5px">
+            <div class="form-group pull-right">
+                <a href="#" onclick="Excel('tblpag')">
+                    <img src="~/ThemeData/Images/Excel.png" height="50" />
+                </a>
+                @*<a href="#" onclick="Pdf('tblpag')">
+                        <img src="~/ThemeData/Images/pdf.jpg" height="50" />
+                    </a>*@
+                <a href="#" onclick="Word('tblpag')">
+                    <img src="~/ThemeData/Images/Word.png" height="50" />
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2" style="margin-top:10px">
+            <div class="form-group pull-right">
+                <a href="@Url.Action("Index", "StudentList", new { @Studentid = 0 })" class="btn btn-primary"> Add Student Group</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:9px">
+        <div class="col-md-12">
+            <div class="card shadow" mb-4>
+                <div class="card-header py-3">
+                    <table style="width: 100%;" id="tblpag" class="table table-bordered dataTable no-footer">
+                        <thead>
+                            <tr style="background-color:#005cbf;font-style:inherit;color:antiquewhite">
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                                <th>StudentName</th>
+                                <th>Address</th>
+                                <th>Country</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Pincode</th>
+                                <th>DOB</th>
+                                <th>Phone no</th>
+                                <th>Email</th>
+                                <th>CourseName</th>
+                                <th>ClassName</th>
+                                <th>SubjectName</th>
+
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    <a href="@Url.Action("Index", "StudentList", new { @Studentid= item.@Studentid})">
+                                        <img src="~/ThemeData/Images/Edit.png" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" onclick="RemoveStudentList('@item.Studentid')">
+                                        <img src="~/image/delete.png" />
+                                    </a>
+                                </td>
+
+                                <td>
+                                    @item.Studentname
+                                </td>
+                                <td>
+                                    @item.Address
+                                </td>
+                                <td>
+                                    @item.countryEntity.Cname
+                                </td>
+                                <td>
+                                    @item.stateEntity.Sname
+                                </td>
+                                <td>
+                                    @item.cityEntity.Cityname
+                                </td>
+                                <td>
+                                    @item.Pincode
+                                </td>
+                                <td>
+                                    @item.DOB
+                                </td>
+                                <td>
+                                    @item.PhoneNumber
+                                </td>
+                                <td>
+                                    @item.Emailid
+                                </td>
+                                <td>
+                                    @item.courseEntity.Coursename
+                                </td>
+                                <td>
+                                    @item.classEntity.Classname
+                                </td>
+                                <td>
+                                    @item.subjectEntity.Subjectname
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<script>
+    var Excel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+            , base64 = function (s) { debugger; return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function (s, c) { debugger; return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name) {
+            debugger;
+            var Title = $('title').text().split(' | ');
+            var FileName = 'Test';
+
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+            var a = document.createElement("a");
+            a.href = uri + base64(format(template, ctx));
+            a.download = "" + FileName + ".xls";
+            document.body.appendChild(a);
+            a.click();
+            //window.location.href = uri + base64(format(template, ctx));
+        }
+    })()
+
+    var Word = (function () {
+        var uri = 'data:application/vnd.ms-word;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:WordWorkbook><x:WordWorksheets><x:WordWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:WordWorksheet></x:WordWorksheets></x:WordWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+            , base64 = function (s) { debugger; return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function (s, c) { debugger; return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name) {
+            debugger;
+            var Title = $('title').text().split(' | ');
+            var FileName = 'Test';
+
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+            var a = document.createElement("a");
+            a.href = uri + base64(format(template, ctx));
+            a.download = "" + FileName + ".doc";
+            document.body.appendChild(a);
+            a.click();
+            //window.location.href = uri + base64(format(template, ctx));
+        }
+    })()
+</script>
+
+<script src="~/Scripts/app/StudentList.js"></script>
+<script src="~/Scripts/app/Common.js"></script>

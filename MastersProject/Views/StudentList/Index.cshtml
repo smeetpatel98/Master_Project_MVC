@@ -1,0 +1,37 @@
+﻿@model MastersProject.Models.StudentListEntity
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="content">
+    <div class="row">
+        <section class="col-md-18">
+            <div class="box box-warning">
+                <div class="box-header with-border">                  
+                </div>              
+                <div class="box-body">
+                    @{
+                        Html.RenderPartial("Create", new ViewDataDictionary(Model));
+                    }
+                </div>
+                </div>
+        </section>
+    </div>
+</section>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/app/StudentList.js"></script>
+    <script src="~/Scripts/app/Common.js"></script>
+    <script type="text/javascript">
+
+        function ConfirmationDialog() {
+            if (confirm("Are you sure to continue?"))
+                return true;
+            else
+                return false;
+        }
+    </script>
+}
+
+

@@ -1,0 +1,24 @@
+            string itemnm = "SELECT dbo.tbl_Customer_Master.Id, dbo.tbl_Customer_Master.GroupNo, dbo.tbl_Customer_Master.No, 
+dbo.tbl_Customer_Master.Name, dbo.tbl_Customer_Master.Area, dbo.tbl_Customer_Master.Address,
+
+(SELECT        BussType 
+
+FROM            dbo.tbl_BussinessType WHERE(Id = dbo.tbl_Customer_Master.BussinessType)) AS BussType,
+
+(SELECT        GroupName 
+
+FROM            dbo.tbl_Industrygroup WHERE(Id = dbo.tbl_Customer_Master.Industrygroup)) AS GroupName, 
+
+dbo.tbl_Customer_Master.City, dbo.tbl_Customer_Master.State, dbo.tbl_Customer_Master.District, dbo.tbl_Customer_Master.Pincode,
+
+dbo.tbl_Customer_Master.PhoneNo, dbo.tbl_Customer_Master.Email, dbo.tbl_Customer_Master.URL, dbo.tbl_Customer_Master.GSTno, 
+
+dbo.tbl_Customer_Master.Status, dbo.tbl_Customer_Master.Bankname, dbo.tbl_Customer_Master.Accountno, dbo.tbl_Customer_Master.IFSCcode, 
+
+dbo.tbl_CustomerGroup_Master.Name AS CustomerGroup, dbo.tbl_Customer_Master.Createdatetime FROM            dbo.tbl_Customer_Master 
+
+INNER JOIN dbo.tbl_CustomerGroup_Master ON dbo.tbl_Customer_Master.GroupNo = dbo.tbl_CustomerGroup_Master.Groupno 
+
+WHERE(CONVERT(datetime, CONVERT(varchar, dbo.tbl_Customer_Master.Createdatetime, 103), 103) 
+
+BETWEEN CONVERT(datetime, CONVERT(varchar, '"+txtfdate.Text+"', 103), 103) AND CONVERT(datetime, CONVERT(varchar, '"+txttdate.Text+"',103), 103))";

@@ -1,0 +1,71 @@
+﻿@model List<MastersProject.Models.CityEntity>
+
+@{
+    ViewBag.Title = "Manage";
+    int intSno = 0;
+}
+
+<div class="card shadow" mb-4>
+    <div class="card-header py-3">
+        <table style="width: 100%;" id="tblpag" class="table table-bordered dataTable no-footer">
+            <thead>
+                <tr style="background-color:#005cbf;font-style:inherit;color:aliceblue">
+                    <th>
+                        Sno
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        State
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    intSno = intSno + 1;
+                <tr>
+                    <td>
+                        @intSno
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => item.countryEntity.Cname)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => item.stateEntity.Sname)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => item.Cityname)
+
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Index", "City", new { @Cityid= item.Cityid })">
+                            <img src="~/image/Edit.png" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" onclick="RemoveCity('@item.Cityid')">
+                            <img src="~/image/delete.png" />
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model MastersProject.Models.CityEntity
+@{
+    ViewBag.Title = "Create";
+}
+<form role="form" id="FCity">
+    <div class="card-body">
+        <div class="form-group">
+
+            @Html.Label("Select Country")
+            <select class="form-control select2bs4" id="Country" name="Country">
+                <option value="0">---Select Country---</option>
+            </select>
+            @Html.HiddenFor(x => x.Cid)
+            <br />
+            @Html.Label("Select State")
+            <select class="form-control select2bs4" id="State" name="State">
+                <option value="0">---Select State---</option>
+            </select>
+            @Html.HiddenFor(x => x.Sid)
+            <br />
+
+            @Html.HiddenFor(x => x.Cityid)
+            @Html.Label("City Name")
+            @Html.TextBoxFor(x => x.Cityname, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <button type="button" onclick="SaveCity()" class="btn btn-primary">Save</button>
+        <input type="reset" value="Clear" class="btn btn-primary">
+    </div>
+</form>
