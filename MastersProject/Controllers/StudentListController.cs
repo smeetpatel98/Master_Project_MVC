@@ -73,7 +73,6 @@ namespace MastersProject.Controllers
             return Json(res);
         }
 
-
         [HttpPost]
         public async Task<JsonResult> RemoveStudentList(long Studentid)
         {
