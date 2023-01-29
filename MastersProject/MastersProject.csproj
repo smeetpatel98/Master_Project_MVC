@@ -193,50 +193,50 @@
     <Compile Include="Models\CountryEntity.cs" />
     <Compile Include="Models\CourseEntity.cs" />
     <Compile Include="Models\loginEntity.cs" />
-    <Compile Include="Models\Master_Project.Context.cs">
+    <Compile Include="Models\Master_MVCEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Master_Project.Context.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Master_Project.cs">
+    <Compile Include="Models\Master_MVCEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Master_Project.Designer.cs">
+    <Compile Include="Models\Master_MVCEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Master_Project.edmx</DependentUpon>
+      <DependentUpon>Master_MVCEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\StateEntity.cs" />
     <Compile Include="Models\StudentListEntity.cs" />
     <Compile Include="Models\SubjectEntity.cs" />
     <Compile Include="Models\tbl_city.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_class.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_country.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_course.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_login.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_state.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_studentlistpage.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_subject.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_transaction.cs">
-      <DependentUpon>Master_Project.tt</DependentUpon>
+      <DependentUpon>Master_MVCEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TransactionEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -451,15 +451,15 @@
     <Content Include="image\writer.png" />
     <Content Include="image\y.svg" />
     <Content Include="image\youtube.png" />
-    <Content Include="Models\Master_Project.Context.tt">
+    <Content Include="Models\Master_MVCEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Master_Project.edmx</DependentUpon>
-      <LastGenOutput>Master_Project.Context.cs</LastGenOutput>
+      <DependentUpon>Master_MVCEntities.edmx</DependentUpon>
+      <LastGenOutput>Master_MVCEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Master_Project.tt">
+    <Content Include="Models\Master_MVCEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Master_Project.edmx</DependentUpon>
-      <LastGenOutput>Master_Project.cs</LastGenOutput>
+      <DependentUpon>Master_MVCEntities.edmx</DependentUpon>
+      <LastGenOutput>Master_MVCEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\app\City.js" />
     <Content Include="Scripts\app\Class.js" />
@@ -895,12 +895,12 @@
     <Content Include="image\soft-ui-dashboard-main\soft-ui-dashboard-main\LICENSE" />
     <Content Include="image\soft-ui-dashboard-main\soft-ui-dashboard-main\package.json" />
     <Content Include="image\soft-ui-dashboard-main\soft-ui-dashboard-main\README.md" />
-    <EntityDeploy Include="Models\Master_Project.edmx">
+    <EntityDeploy Include="Models\Master_MVCEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Master_Project.Designer.cs</LastGenOutput>
+      <LastGenOutput>Master_MVCEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Master_Project.edmx.diagram">
-      <DependentUpon>Master_Project.edmx</DependentUpon>
+    <Content Include="Models\Master_MVCEntities.edmx.diagram">
+      <DependentUpon>Master_MVCEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\desginJS\js\core\bootstrap.min.js" />
@@ -3368,7 +3368,6 @@
     <Content Include="Views\Subject\Manage.cshtml" />
     <Content Include="Views\StudentList\Index.cshtml" />
     <Content Include="Views\StudentList\Create.cshtml" />
-    <Content Include="Views\StudentList\Manage.cshtml" />
     <Content Include="Views\StudentList\MainPageView.cshtml" />
     <Content Include="ThemeData\bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="ThemeData\bootstrap\css\bootstrap-theme.min.css.map" />

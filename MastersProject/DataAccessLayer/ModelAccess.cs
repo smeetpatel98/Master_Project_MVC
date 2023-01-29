@@ -9,13 +9,13 @@ namespace MastersProject.DataAccessLayer
 {
     public class ModelAccess :IDisposable
     {
-        public Master_MVCEntities context;
+        public Master_MVCEntities1 context;
         private bool _disposed;
         ResponseResult responseResult;
         public ModelAccess()
         {
             responseResult = new ResponseResult();
-            context = new Models.Master_MVCEntities();
+            context = new Models.Master_MVCEntities1();
         }
 
         public long AddTransactionData(TransactionEntity transactionData)
@@ -34,10 +34,11 @@ namespace MastersProject.DataAccessLayer
             }
             if (!isUpdate)
             {
-                
+                #region Transaction
                 transData.created_dt = DateTime.Now;
                 transData.created_id = transactionData.Created_id;
-                
+                #endregion
+
             }
             if (isUpdate)
             {

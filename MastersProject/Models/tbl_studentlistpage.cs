@@ -35,12 +35,12 @@ namespace MastersProject.Models
         public long Sid { get; set; }
         public long Cityid { get; set; }
     
+        public virtual tbl_city tbl_city { get; set; }
         public virtual tbl_class tbl_class { get; set; }
+        public virtual tbl_country tbl_country { get; set; }
         public virtual tbl_course tbl_course { get; set; }
+        public virtual tbl_state tbl_state { get; set; }
         public virtual tbl_subject tbl_subject { get; set; }
         public virtual tbl_transaction tbl_transaction { get; set; }
-        public virtual tbl_city tbl_city { get; set; }
-        public virtual tbl_country tbl_country { get; set; }
-        public virtual tbl_state tbl_state { get; set; }
     }
 }

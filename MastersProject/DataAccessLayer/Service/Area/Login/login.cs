@@ -12,7 +12,7 @@ namespace MastersProject.DataAccessLayer
     {
         public async Task<loginEntity> PopulateUser(string username, string password)
         {
-            var userInfo = (from u in this.context.tbl_login
+            var userInfo =  (from u in this.context.tbl_login
                             where u.Username == username && u.Password == password
                             select new loginEntity()
                             {

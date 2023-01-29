@@ -17,8 +17,8 @@ namespace MastersProject.Models
         public tbl_course()
         {
             this.tbl_class = new HashSet<tbl_class>();
-            this.tbl_subject = new HashSet<tbl_subject>();
             this.tbl_studentlistpage = new HashSet<tbl_studentlistpage>();
+            this.tbl_subject = new HashSet<tbl_subject>();
         }
     
         public long Courseid { get; set; }
@@ -27,7 +27,7 @@ namespace MastersProject.Models
     
         public virtual ICollection<tbl_class> tbl_class { get; set; }
         public virtual tbl_transaction tbl_transaction { get; set; }
-        public virtual ICollection<tbl_subject> tbl_subject { get; set; }
         public virtual ICollection<tbl_studentlistpage> tbl_studentlistpage { get; set; }
+        public virtual ICollection<tbl_subject> tbl_subject { get; set; }
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c17e2e2bad684437bfc192b0a9561e7d" Name="Diagram1">
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_city" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_class" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_country" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_course" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_login" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_state" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_studentlistpage" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_subject" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_MVCModel.tbl_transaction" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_city_tbl_country" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_city_tbl_state" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_city_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_city" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_class_tbl_course" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_class_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_class" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_subject_tbl_class" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_country_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_state_tbl_country" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_country" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_course_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_course" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_subject_tbl_course" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_login_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_state_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_state" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_subject" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_studentlistpage_tbl_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_MVCModel.FK_tbl_subject_tbl_transaction" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

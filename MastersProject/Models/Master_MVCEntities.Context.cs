@@ -13,10 +13,10 @@ namespace MastersProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Master_MVCEntities : DbContext
+    public partial class Master_MVCEntities1 : DbContext
     {
-        public Master_MVCEntities()
-            : base("name=Master_MVCEntities")
+        public Master_MVCEntities1()
+            : base("name=Master_MVCEntities1")
         {
         }
     
@@ -26,13 +26,13 @@ namespace MastersProject.Models
         }
     
         public DbSet<tbl_city> tbl_city { get; set; }
+        public DbSet<tbl_class> tbl_class { get; set; }
         public DbSet<tbl_country> tbl_country { get; set; }
+        public DbSet<tbl_course> tbl_course { get; set; }
         public DbSet<tbl_login> tbl_login { get; set; }
         public DbSet<tbl_state> tbl_state { get; set; }
-        public DbSet<tbl_transaction> tbl_transaction { get; set; }
-        public DbSet<tbl_class> tbl_class { get; set; }
-        public DbSet<tbl_course> tbl_course { get; set; }
-        public DbSet<tbl_subject> tbl_subject { get; set; }
         public DbSet<tbl_studentlistpage> tbl_studentlistpage { get; set; }
+        public DbSet<tbl_subject> tbl_subject { get; set; }
+        public DbSet<tbl_transaction> tbl_transaction { get; set; }
     }
 }

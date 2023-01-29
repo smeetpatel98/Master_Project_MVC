@@ -62,7 +62,6 @@ namespace MastersProject
             container.RegisterType<IStudentList, StudentList>();
             container.RegisterType<IStudentListService, StudentListService>();
 
-
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

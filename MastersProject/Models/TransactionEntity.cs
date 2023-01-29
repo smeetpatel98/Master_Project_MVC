@@ -14,10 +14,5 @@ namespace MastersProject.Models
         public Nullable<long> Created_id { get; set; }
         public Nullable<System.DateTime> Last_mod_dt { get; set; }
         public Nullable<long> Last_mod_id { get; set; }
-
-        //public virtual ICollection<CityEntity> city { get; set; }
-        //public virtual ICollection<CountryEntity> country { get; set; }
-        //public virtual ICollection<tbl_login> tbl_login { get; set; }
-        //public virtual ICollection<StateEntity> state { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace MastersProject.Models
     
         public virtual tbl_class tbl_class { get; set; }
         public virtual tbl_course tbl_course { get; set; }
-        public virtual tbl_transaction tbl_transaction { get; set; }
         public virtual ICollection<tbl_studentlistpage> tbl_studentlistpage { get; set; }
+        public virtual tbl_transaction tbl_transaction { get; set; }
     }
 }

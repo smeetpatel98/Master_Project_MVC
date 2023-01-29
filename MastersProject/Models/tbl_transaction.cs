@@ -17,30 +17,28 @@ namespace MastersProject.Models
         public tbl_transaction()
         {
             this.tbl_city = new HashSet<tbl_city>();
+            this.tbl_class = new HashSet<tbl_class>();
             this.tbl_country = new HashSet<tbl_country>();
+            this.tbl_course = new HashSet<tbl_course>();
             this.tbl_login = new HashSet<tbl_login>();
             this.tbl_state = new HashSet<tbl_state>();
-            this.tbl_class = new HashSet<tbl_class>();
-            this.tbl_course = new HashSet<tbl_course>();
-            this.tbl_subject = new HashSet<tbl_subject>();
             this.tbl_studentlistpage = new HashSet<tbl_studentlistpage>();
+            this.tbl_subject = new HashSet<tbl_subject>();
         }
     
         public long trans_id { get; set; }
-        public System.DateTime created_dt { get; set; }
+        public Nullable<System.DateTime> created_dt { get; set; }
         public Nullable<long> created_id { get; set; }
         public Nullable<System.DateTime> last_mod_dt { get; set; }
         public Nullable<long> last_mod_id { get; set; }
     
         public virtual ICollection<tbl_city> tbl_city { get; set; }
+        public virtual ICollection<tbl_class> tbl_class { get; set; }
         public virtual ICollection<tbl_country> tbl_country { get; set; }
+        public virtual ICollection<tbl_course> tbl_course { get; set; }
         public virtual ICollection<tbl_login> tbl_login { get; set; }
         public virtual ICollection<tbl_state> tbl_state { get; set; }
-        public virtual ICollection<tbl_class> tbl_class { get; set; }
-        public virtual ICollection<tbl_course> tbl_course { get; set; }
-        public virtual ICollection<tbl_subject> tbl_subject { get; set; }
         public virtual ICollection<tbl_studentlistpage> tbl_studentlistpage { get; set; }
-        public virtual tbl_transaction tbl_transaction1 { get; set; }
-        public virtual tbl_transaction tbl_transaction2 { get; set; }
+        public virtual ICollection<tbl_subject> tbl_subject { get; set; }
     }
 }

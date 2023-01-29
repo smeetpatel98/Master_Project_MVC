@@ -25,8 +25,9 @@ namespace MastersProject.Models
         public long trans_id { get; set; }
         public long Cid { get; set; }
     
-        public virtual tbl_transaction tbl_transaction { get; set; }
+        public virtual tbl_country tbl_country { get; set; }
         public virtual tbl_state tbl_state { get; set; }
+        public virtual tbl_transaction tbl_transaction { get; set; }
         public virtual ICollection<tbl_studentlistpage> tbl_studentlistpage { get; set; }
     }
 }

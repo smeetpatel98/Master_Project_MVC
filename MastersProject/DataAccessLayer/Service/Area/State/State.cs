@@ -10,7 +10,7 @@ namespace MastersProject.DataAccessLayer.Service.Area.State
 {
     public class State : ModelAccess,IState
     {
-        Master_MVCEntities db = new Master_MVCEntities();
+        Master_MVCEntities1 db = new Master_MVCEntities1();
 
         private ResponseResult responseResult;
         public State()

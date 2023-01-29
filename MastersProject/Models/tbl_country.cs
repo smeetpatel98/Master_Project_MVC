@@ -16,6 +16,7 @@ namespace MastersProject.Models
     {
         public tbl_country()
         {
+            this.tbl_city = new HashSet<tbl_city>();
             this.tbl_state = new HashSet<tbl_state>();
             this.tbl_studentlistpage = new HashSet<tbl_studentlistpage>();
         }
@@ -24,6 +25,7 @@ namespace MastersProject.Models
         public string Cname { get; set; }
         public long trans_id { get; set; }
     
+        public virtual ICollection<tbl_city> tbl_city { get; set; }
         public virtual tbl_transaction tbl_transaction { get; set; }
         public virtual ICollection<tbl_state> tbl_state { get; set; }
         public virtual ICollection<tbl_studentlistpage> tbl_studentlistpage { get; set; }

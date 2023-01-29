@@ -10,7 +10,7 @@ namespace MastersProject.DataAccessLayer.Service.Area.StudentList
 {
     public class StudentList : ModelAccess, IStudentList
     {
-        Master_MVCEntities db = new Master_MVCEntities();
+        Master_MVCEntities1 db = new Master_MVCEntities1();
 
         private ResponseResult responseResult;
         public StudentList()

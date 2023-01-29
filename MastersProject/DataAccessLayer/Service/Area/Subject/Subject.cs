@@ -10,7 +10,7 @@ namespace MastersProject.DataAccessLayer.Service.Area.Subject
 {
     public class Subject : ModelAccess, ISubject
     {
-        Master_MVCEntities db = new Master_MVCEntities();
+        Master_MVCEntities1 db = new Master_MVCEntities1();
 
         private ResponseResult responseResult;
         public Subject()

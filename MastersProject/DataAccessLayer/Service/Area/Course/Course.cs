@@ -10,7 +10,7 @@ namespace MastersProject.DataAccessLayer.Service.Area.Course
 {
     public class Course : ModelAccess, ICourse
     {
-        Master_MVCEntities db = new Master_MVCEntities();
+        Master_MVCEntities1 db = new Master_MVCEntities1();
 
         private ResponseResult responseResult;
         public Course()

@@ -227,9 +227,9 @@
 
                                         <!-- Formulario -->
                                         <span class="block input-icon input-icon-right">
-                                            @Html.TextBoxFor(x => x.Username, new { @class = "user-email required", @alt = "UserName" })
+                                            @Html.TextBoxFor(x => x.Username, new { @class = "user-email required", @placeholder = "Enter your username" ,@alt = "UserName" })
                                             @*<input ID="txtmob" name="MobileNo" class="user-email" MaxLength="10" placeholder="Enter your mobile no" />*@
-                                        </span>
+                                        </span> 
                                         <span class="block input-icon input-icon-right">
                                             @Html.PasswordFor(x => x.Password, new { @class = "user-password required", @placeholder = "Enter your password", @alt = "Password" })
                                             @*<input ID="txtpwd" name="Password" type="password" class="user-password" MaxLength="10" placeholder="Enter your password" />*@
